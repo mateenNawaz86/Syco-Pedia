@@ -11,6 +11,7 @@ import { useSelector } from "react-redux";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { createTheme } from "@mui/material/styles";
 import { themeSettings } from "./theme";
+import Navbar from "./pages/Navbar";
 
 const App = () => {
   // Select MODE state from Redux STORE
@@ -20,7 +21,7 @@ const App = () => {
   const theme = useMemo(() => createTheme(themeSettings(mode)), [mode]);
   return (
     <>
-      <h1 className="bg-red-400">Mateen Mirani is here</h1>
+      <Navbar />
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <Routes>

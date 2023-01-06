@@ -61,7 +61,23 @@ const Navbar = () => {
           fontSize="clamp(1rem, 2rem ,2.25rem)"
           color="primary"
           onClick={() => navigate("/home")}
-        ></Typography>
+          sx={{
+            "&:hover": {
+              color: primaryLight,
+              cursor: "pointer",
+            },
+          }}
+        >
+          Syco-Pedia
+        </Typography>
+        {isNonResponsive && (
+          <FlexBetween
+            backgroundColor={neutralLight}
+            borderRadius="9px"
+            gap="3rem"
+            padding="0.1rem 1.5rem"
+          ></FlexBetween>
+        )}
       </FlexBetween>
     </FlexBetween>
   );
