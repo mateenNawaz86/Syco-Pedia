@@ -37,7 +37,7 @@ const Navbar = () => {
   const user = useSelector((state) => state.user);
 
   // set Media-Query using MUI hook
-  const isNonResponsive = useMediaQuery("(min-width: 1000px)");
+  const isNonResponsive = useMediaQuery("(min-width: 768px)");
 
   // MUI theme used for controlling theme
   const theme = useTheme();
@@ -68,7 +68,7 @@ const Navbar = () => {
             },
           }}
         >
-          Syco-Pedia
+          SycoPedia
         </Typography>
         {isNonResponsive && (
           <FlexBetween
@@ -76,9 +76,45 @@ const Navbar = () => {
             borderRadius="9px"
             gap="3rem"
             padding="0.1rem 1.5rem"
-          ></FlexBetween>
+          >
+            <InputBase placeholder="Search...">
+              <IconButton>
+                <Search />
+              </IconButton>
+            </InputBase>
+          </FlexBetween>
         )}
       </FlexBetween>
+
+      {/* NAVBAR FOR DESKTOP VERSION */}
+      {isNonResponsive ? (
+        <FlexBetween gap="2rem">
+          {/* Code for switch the mode */}
+          <IconButton onClick={() => dispatch(setMode())}>
+            {theme.palette.mode === "dark" ? (
+              <DarkMode sx={{ fontSize: "25px" }} />
+            ) : (
+              <LightMode sx={{ color: "dark", fontSize: "25px" }} />
+            )}
+          </IconButton>
+          <Message sx={{ fontSize: "25px" }} />
+          <NotificationAdd sx={{ fontSize: "25px" }} />
+          <Help sx={{ fontSize: "25px" }} />
+          <FormControl variant="standard" value={fullName}>
+            <Select
+              value={fullName}
+              sx={{
+                backgroundColor: neutralLight,
+                width: "150px",
+                borderRadius: "0.25rem",
+                p: "0.25rem 1rem",
+              }}
+            ></Select>
+          </FormControl>
+        </FlexBetween>
+      ) : (
+        <IconButton></IconButton>
+      )}
     </FlexBetween>
   );
 };
