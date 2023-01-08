@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 // Initial Values for Auth state
 const initialState = {
   mode: "light",
-  user: null,
+  users: null,
   token: null,
   posts: [],
 };

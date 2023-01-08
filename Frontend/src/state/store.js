@@ -18,13 +18,12 @@ const persistedReducer = persistReducer(persistConfig, authReducer);
 // Redux STORE --> Used as local storage by using redux-persist
 const store = configureStore({
   reducer: persistedReducer,
-  middleware: (getDefaultMiddleware) => {
-    return getDefaultMiddleware({
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, REGISTER],
       },
-    });
-  },
+    }),
 });
 
 export default store;

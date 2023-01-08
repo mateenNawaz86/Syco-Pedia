@@ -37,7 +37,7 @@ const Navbar = () => {
   const user = useSelector((state) => state.user);
 
   // set Media-Query using MUI hook
-  const isNonResponsive = useMediaQuery("(min-width: 768px)");
+  const isNonResponsive = useMediaQuery("(min-width: 899px)");
 
   // MUI theme used for controlling theme
   const theme = useTheme();
@@ -50,7 +50,7 @@ const Navbar = () => {
   const alt = theme.palette.background.alt;
 
   // Grabe user FULLNAME
-  const fullName = `${user.name}`;
+  // const fullName = `${user.name}`;
 
   return (
     <FlexBetween padding="1rem 6%" backgroundColor={alt}>
@@ -86,7 +86,7 @@ const Navbar = () => {
         )}
       </FlexBetween>
 
-      {/* NAVBAR FOR DESKTOP VERSION */}
+      {/* NAVBAR FOR DESKTOP VIEW */}
       {isNonResponsive ? (
         <FlexBetween gap="2rem">
           {/* Code for switch the mode */}
@@ -97,24 +97,155 @@ const Navbar = () => {
               <LightMode sx={{ color: "dark", fontSize: "25px" }} />
             )}
           </IconButton>
-          <Message sx={{ fontSize: "25px" }} />
-          <NotificationAdd sx={{ fontSize: "25px" }} />
-          <Help sx={{ fontSize: "25px" }} />
-          <FormControl variant="standard" value={fullName}>
+          <Message
+            sx={{
+              fontSize: "25px",
+              "&:hover": {
+                cursor: "pointer",
+              },
+            }}
+          />
+          <NotificationAdd
+            sx={{
+              fontSize: "25px",
+              "&:hover": {
+                cursor: "pointer",
+              },
+            }}
+          />
+          <Help
+            sx={{
+              fontSize: "25px",
+              "&:hover": {
+                cursor: "pointer",
+                backgroundColor: "gray-",
+              },
+            }}
+          />
+          <FormControl variant="standard" value="Mateen">
             <Select
-              value={fullName}
+              value="Mateen"
               sx={{
                 backgroundColor: neutralLight,
                 width: "150px",
                 borderRadius: "0.25rem",
                 p: "0.25rem 1rem",
+                "& .MuiSvgIcon-root": {
+                  pr: "0.25rem",
+                  width: "3rem",
+                },
+                "& .MuiSelect-select:focus": {
+                  backgroundColor: neutralLight,
+                },
               }}
-            ></Select>
+              input={<InputBase />}
+            >
+              <MenuItem value="Mateen">
+                <Typography>Mateen</Typography>
+                <Typography onClick={() => dispatch(setLogout())}>
+                  Log Out
+                </Typography>
+              </MenuItem>
+            </Select>
           </FormControl>
         </FlexBetween>
       ) : (
-        <IconButton></IconButton>
+        <IconButton onClick={() => setIsMenuToggled(!isMenuToggled)}>
+          <Menu />
+        </IconButton>
       )}
+
+      {/* MOBILE NAVBAR VIEW START*/}
+      {!isNonResponsive && isMenuToggled && (
+        <Box
+          position="fixed"
+          right="0"
+          top="0"
+          maxWidth="500px"
+          minWidth="300px"
+          backgroundColor={background}
+        >
+          {/* CLOSE ICON START */}
+          <Box display="flex" justifyContent="flex-end" p="1rem">
+            <IconButton onClick={() => setIsMenuToggled(!isMenuToggled)}>
+              <Close />
+            </IconButton>
+          </Box>
+          {/* CLOSE ICON END */}
+
+          {/* MENU ITEM START */}
+          <FlexBetween
+            flex="flex"
+            flexDirection="column"
+            justifyContent="center"
+            gap="2rem"
+          >
+            {/* Code for switch the mode */}
+            <IconButton onClick={() => dispatch(setMode())}>
+              {theme.palette.mode === "dark" ? (
+                <DarkMode sx={{ fontSize: "25px" }} />
+              ) : (
+                <LightMode sx={{ color: "dark", fontSize: "25px" }} />
+              )}
+            </IconButton>
+            <Message
+              sx={{
+                fontSize: "25px",
+                "&:hover": {
+                  cursor: "pointer",
+                  color: "#488AFF",
+                },
+              }}
+            />
+            <NotificationAdd
+              sx={{
+                fontSize: "25px",
+                "&:hover": {
+                  cursor: "pointer",
+                  color: "#E74C2D",
+                },
+              }}
+            />
+            <Help
+              sx={{
+                fontSize: "25px",
+                "&:hover": {
+                  cursor: "pointer",
+                  color: "#234796",
+                },
+              }}
+            />
+            <FormControl variant="standard" value="Mateen">
+              <Select
+                value="Mateen"
+                sx={{
+                  backgroundColor: neutralLight,
+                  width: "150px",
+                  borderRadius: "0.25rem",
+                  p: "0.25rem 1rem",
+                  "& .MuiSvgIcon-root": {
+                    pr: "0.25rem",
+                    width: "3rem",
+                  },
+                  "& .MuiSelect-select:focus": {
+                    backgroundColor: neutralLight,
+                  },
+                }}
+                input={<InputBase />}
+              >
+                <MenuItem value="Mateen">
+                  <Typography>Mateen</Typography>
+                  <Typography onClick={() => dispatch(setLogout())}>
+                    Log Out
+                  </Typography>
+                </MenuItem>
+              </Select>
+            </FormControl>
+          </FlexBetween>
+          {/* MENU ITEM END */}
+        </Box>
+      )}
+      {/* MOBILE NAVBAR VIEW END*/}
     </FlexBetween>
   );
 };
