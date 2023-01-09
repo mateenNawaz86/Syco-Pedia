@@ -11,7 +11,6 @@ import { useSelector } from "react-redux";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { createTheme } from "@mui/material/styles";
 import { themeSettings } from "./theme";
-import Navbar from "./pages/Navbar";
 
 const App = () => {
   // Select MODE state from Redux STORE
@@ -22,7 +21,6 @@ const App = () => {
   return (
     <>
       <ThemeProvider theme={themes}>
-        <Navbar />
         <CssBaseline />
         <Routes>
           <Route path="/" element={<LoginPage />} exact />

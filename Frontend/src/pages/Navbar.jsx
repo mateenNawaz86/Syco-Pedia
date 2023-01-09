@@ -39,7 +39,7 @@ const Navbar = () => {
   // const mode = useSelector((state) => state.mode);
 
   // set Media-Query using MUI hook
-  const isNonResponsive = useMediaQuery("(min-width: 899px)");
+  const isNonResponsive = useMediaQuery("(min-width:1000px)");
 
   // MUI theme used for controlling theme
   const theme = useTheme();
