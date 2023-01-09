@@ -18,11 +18,11 @@ const App = () => {
   const mode = useSelector((state) => state.mode);
 
   // Set up MUI theme setting
-  const theme = useMemo(() => createTheme(themeSettings(mode)), [mode]);
+  const themes = useMemo(() => createTheme(themeSettings(mode)), [mode]);
   return (
     <>
-      <Navbar />
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={themes}>
+        <Navbar />
         <CssBaseline />
         <Routes>
           <Route path="/" element={<LoginPage />} exact />

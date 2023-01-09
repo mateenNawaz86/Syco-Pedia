@@ -22,7 +22,7 @@ export const authSlice = createSlice({
     //2.  Method for controlling Login user state
     setLogin: (state, action) => {
       // Set arguments of user to initial state
-      state.user = action.payload.user;
+      state.users = action.payload.user;
 
       // Grabe user token and set it to user initials
       state.token = action.payload.token;
@@ -30,15 +30,15 @@ export const authSlice = createSlice({
 
     // 3. Method for Logout user state
     setLogout: (state) => {
-      state.user = null;
+      state.users = null;
       state.token = null;
     },
 
     // 4. Method for controlling ADD or REMOVE friends with logged-In user
     setFriends: (state, action) => {
       // IF user exit then set it to logged-In user friend list
-      if (state.user) {
-        state.user.friends = action.payload.friends;
+      if (state.users) {
+        state.users.friends = action.payload.friends;
       } else {
         console.log("User Friend NOT exist!");
       }
