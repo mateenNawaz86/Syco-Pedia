@@ -4,7 +4,7 @@ import Form from "../components/Form";
 
 const LoginPage = () => {
   const theme = useTheme();
-  const alt = theme.palette.background.alt;
+  const alt = theme.palette.background.alt; // grabe BG color
 
   // Use MUI Media-Query hook
   const isNonResponsive = useMediaQuery("(min-width:1000px)");
@@ -29,7 +29,12 @@ const LoginPage = () => {
           backgroundColor={alt}
           borderRadius="10px"
         >
-          <Typography fontWeight="500" variant="h5" sx={{ mb: "1.5rem" }}>
+          <Typography
+            fontWeight="500"
+            variant="h5"
+            sx={{ mb: "1.5rem" }}
+            className="text-center text-cyan-400"
+          >
             Welcome to SycoPedia
           </Typography>
           <Form />

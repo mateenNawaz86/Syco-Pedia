@@ -23,7 +23,7 @@ import {
 } from "@mui/icons-material";
 
 import { useDispatch, useSelector } from "react-redux";
-import { setMode, setLogout } from "../state";
+import { setMode, setLogout } from "../state/index";
 import { useNavigate } from "react-router-dom";
 import FlexBetween from "../components/FlexBetween";
 
@@ -35,7 +35,7 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   // Grabe user state from Redux STORE
-  const user = useSelector((state) => state.user);
+  const user = useSelector((state) => state.users);
   // const mode = useSelector((state) => state.mode);
 
   // set Media-Query using MUI hook
