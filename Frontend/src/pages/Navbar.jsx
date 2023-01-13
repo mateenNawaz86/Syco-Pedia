@@ -35,7 +35,7 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   // Grabe user state from Redux STORE
-  const user = useSelector((state) => state.users);
+  const user = useSelector((state) => state.user);
   // const mode = useSelector((state) => state.mode);
 
   // set Media-Query using MUI hook
@@ -52,7 +52,7 @@ const Navbar = () => {
   const alt = theme.palette.background.alt;
 
   // Grabe user FULLNAME
-  const fullName = `${user}`;
+  const fullName = `${user.name}`;
 
   return (
     <FlexBetween padding="1rem 5%" backgroundColor={alt}>

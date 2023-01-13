@@ -85,7 +85,7 @@ export const sign_in = async (req, res, next) => {
     delete user.password;
 
     // Send a response
-    res.status(200).json({ auth__token });
+    res.status(200).json({ auth__token, user });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }

@@ -9,9 +9,6 @@ import { connectedToMongo } from "./database.js";
 import signRoute from "./routes/auth.js";
 import { createPost } from "./controllers/postController.js";
 import { verifyToken } from "./middleware/auth.js";
-import User from "./models/UserModel.js";
-import Post from "./models/PostModel.js";
-import { users, posts } from "./data/index.js";
 
 // For Signup route
 import { validateUser, validate } from "./middleware/validator.js";
