@@ -70,7 +70,7 @@ const Navbar = () => {
             },
           }}
         >
-          SycoPedia
+          BlackB00k
         </Typography>
         {isNonResponsive && (
           <FlexBetween
@@ -165,6 +165,7 @@ const Navbar = () => {
           maxWidth="500px"
           minWidth="300px"
           backgroundColor={background}
+          pb="1.5rem"
         >
           {/* CLOSE ICON START */}
           <Box display="flex" justifyContent="flex-end" p="1rem">

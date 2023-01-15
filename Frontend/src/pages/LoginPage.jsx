@@ -18,7 +18,7 @@ const LoginPage = () => {
             fontSize="32px"
             color="primary"
           >
-            SycoPedia
+            BlackB00k
           </Typography>
         </Box>
 

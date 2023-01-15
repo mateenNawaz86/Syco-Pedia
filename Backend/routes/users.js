@@ -7,7 +7,7 @@ import {
   getUpdateUser,
 } from "../controllers/usersController.js";
 
-import { verifyToken } from "../middleware/auth";
+import { verifyToken } from "../middleware/auth.js";
 
 // 1. ROUTE for getting user --> LOG-In required!
 router.get("/:id", verifyToken, getUser);

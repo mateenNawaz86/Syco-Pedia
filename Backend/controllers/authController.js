@@ -53,7 +53,7 @@ export const signup = async (req, res, next) => {
 };
 
 // 2. Controller for Sign in --> Login NOT required!
-export const sign_in = async (req, res, next) => {
+export const sign_in = async (req, res) => {
   try {
     // Destructure data from request body
     const { email, password } = req.body;

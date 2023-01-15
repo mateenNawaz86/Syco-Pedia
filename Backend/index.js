@@ -7,6 +7,7 @@ import helmet from "helmet";
 import morgan from "morgan";
 import { connectedToMongo } from "./database.js";
 import signRoute from "./routes/auth.js";
+import userRoute from "./routes/users.js";
 import { createPost } from "./controllers/postController.js";
 import { verifyToken } from "./middleware/auth.js";
 
@@ -65,11 +66,15 @@ app.use(
   signup
 ); // upload.single("picture") is middlreware function runs before hit the register route
 
+// Login ROUTE
+app.use("/api", signRoute);
+
 // Route for Handling User POSTS --> ROUTES WITH FILES
 app.use("/api/posts", verifyToken, upload.single("picture"), createPost);
 
-// Login ROUTE
-app.use("/api", signRoute);
+// Routes for getting user INFO
+app.use("/users", userRoute);
+
 // Run a nodejs APP
 app.listen(port, () => {
   console.log(`App listening on port ${port}`);
