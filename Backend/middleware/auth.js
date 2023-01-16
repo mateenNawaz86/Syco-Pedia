@@ -12,10 +12,10 @@ export const verifyToken = async (req, res, next) => {
     }
 
     //   IF token was exist
-    if (token.startsWith("Bearer ")) {
-      // token grabe after Bearer keyword
-      token = token.slice((7, token.length)).trimLeft();
-    }
+    // if (token.startsWith("Bearer ")) {
+    //   // token grabe after Bearer keyword
+    //   token = token.slice((7, token.length)).trimLeft();
+    // }
 
     // Verify user token with requested token
     const verified = jwt.verify(token, process.env.SECRET_KEY);

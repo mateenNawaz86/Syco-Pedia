@@ -17,8 +17,8 @@ export const validateUser = [
     .not()
     .isEmpty()
     .withMessage("Password is missing !")
-    .isLength({ min: 8, max: 20 })
-    .withMessage("Password must be 8 to 20 characters long!"),
+    .isLength({ min: 6, max: 16 })
+    .withMessage("Password must be 6 to 16 characters long!"),
 ];
 
 // Return an error array if new user is not valid
