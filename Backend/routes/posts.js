@@ -1,10 +1,17 @@
 import express from "express";
 const router = express.Router();
 import { verifyToken } from "../middleware/auth.js";
-import { getPostsFeed, getUserPosts } from "../controllers/postController.js";
+import {
+  getAllPosts,
+  getUserPosts,
+  likePost,
+} from "../controllers/postController.js";
 
 // 1. ROUTE for READ Logged-In user Posts
-router.post("/", verifyToken, getPostsFeed);
+router.get("/", verifyToken, getAllPosts);
 
 // 2. ROUTE for READ Logged-In user POSTS
-router.post("/:userId/posts", verifyToken, getUserPosts);
+router.get("/:userId/posts", verifyToken, getUserPosts);
+
+// 3. Route for like the post
+router.patch("/:id/like", verifyToken, likePost);

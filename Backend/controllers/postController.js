@@ -35,9 +35,8 @@ export const createPost = async (req, res) => {
 };
 
 // 2. Controller for READ Post
-export const getPostsFeed = async (req, res) => {
+export const getAllPosts = async (req, res) => {
   try {
-    
     const post = await Post.find();
     // Send RESPONSE to Client, Here 200 show Successful response
     res.status(200).json(post);

@@ -6,8 +6,9 @@ import multer from "multer";
 import helmet from "helmet";
 import morgan from "morgan";
 import { connectedToMongo } from "./database.js";
-import signRoute from "./routes/auth.js";
+import authRoute from "./routes/auth.js";
 import userRoute from "./routes/users.js";
+import postRoute from "./controllers/postController.js";
 import { createPost } from "./controllers/postController.js";
 import { verifyToken } from "./middleware/auth.js";
 
@@ -66,14 +67,13 @@ app.use(
   signup
 ); // upload.single("picture") is middlreware function runs before hit the register route
 
-// Login ROUTE
-app.use("/api", signRoute);
-
 // Route for Handling User POSTS --> ROUTES WITH FILES
 app.use("/api/posts", verifyToken, upload.single("picture"), createPost);
 
-// Routes for getting user INFO
-app.use("/users", userRoute);
+/* ROUTES */
+app.use("/api", authRoute); // Login ROUTE
+app.use("/users", userRoute); // Routes for getting user INFO
+app.use("/posts", postRoute); // Routes for getting the users posts
 
 // Run a nodejs APP
 app.listen(port, () => {
