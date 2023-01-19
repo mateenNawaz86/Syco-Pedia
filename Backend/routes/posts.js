@@ -15,3 +15,5 @@ router.get("/:userId/posts", verifyToken, getUserPosts);
 
 // 3. Route for like the post
 router.patch("/:id/like", verifyToken, likePost);
+
+export default router;

@@ -1,6 +1,6 @@
 import React from "react";
 import { PersonAddOutlined, PersonRemoveOutlined } from "@mui/icons-material";
-import { Box, IconButton, useTheme, Typography } from "@mui/system";
+import { Box, IconButton, useTheme, Typography } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { setFriends } from "../state";
 import FlexBetween from "./FlexBetween";

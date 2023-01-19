@@ -53,7 +53,7 @@ export const authSlice = createSlice({
     // 6. Method for controlling Update post state when user add new post
     setPost: (state, action) => {
       const updatedPosts = state.posts.map((post) => {
-        if (post._id === action.payload.post_id) return action.payload.post;
+        if (post._id === action.payload.post._id) return action.payload.post;
         return post;
       });
 

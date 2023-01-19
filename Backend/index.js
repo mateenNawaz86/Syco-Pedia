@@ -8,9 +8,12 @@ import morgan from "morgan";
 import { connectedToMongo } from "./database.js";
 import authRoute from "./routes/auth.js";
 import userRoute from "./routes/users.js";
-import postRoute from "./controllers/postController.js";
+import postRoute from "./routes/posts.js";
 import { createPost } from "./controllers/postController.js";
 import { verifyToken } from "./middleware/auth.js";
+// import { users, posts } from "./data/index.js";
+// import User from "./models/UserModel.js";
+// import Post from "./models/PostModel.js";
 
 // For Signup route
 import { validateUser, validate } from "./middleware/validator.js";
