@@ -80,7 +80,7 @@ const UserWidget = ({ userId, userPicPath }) => {
             <Typography color={medium}>{friends.length} Friends</Typography>
           </Box>
         </FlexBetween>
-        <ManageAccountsOutlined />
+        <ManageAccountsOutlined sx={{ color: "#57ADEE" }} />
       </FlexBetween>
       {/* First Row end*/}
 
@@ -89,11 +89,11 @@ const UserWidget = ({ userId, userPicPath }) => {
       {/* Second Row Start */}
       <Box p="1rem 0">
         <Box display="flex" alignItems="center" gap="1rem" mb="0.5rem">
-          <LocationOnOutlined fontSize="large" sx={{ color: main }} />
+          <LocationOnOutlined fontSize="large" sx={{ color: "#961B1A" }} />
           <Typography color={medium}>{location}</Typography>
         </Box>
         <Box display="flex" alignItems="center" gap="1rem">
-          <WorkOutlineOutlined fontSize="large" sx={{ color: main }} />
+          <WorkOutlineOutlined fontSize="large" sx={{ color: "#57ADEE" }} />
           <Typography color={medium}>{occupation}</Typography>
         </Box>
       </Box>

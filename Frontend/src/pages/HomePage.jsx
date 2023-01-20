@@ -2,7 +2,9 @@ import { Box, useMediaQuery } from "@mui/material";
 import React from "react";
 import { useSelector } from "react-redux";
 import Navbar from "./Navbar";
+import AdsWidget from "./widgets/AdsWidget";
 import AllPostsWidget from "./widgets/AllPostsWidget";
+import FriendListWidget from "./widgets/FriendListWidget";
 import MyPostWidget from "./widgets/MyPostWidget";
 import UserWidget from "./widgets/UserWidget";
 
@@ -30,9 +32,15 @@ const HomePage = () => {
           mt={isNonResponsive ? undefined : "2rem"}
         >
           <MyPostWidget myPicturePath={picturePath} />
-          <AllPostsWidget userId={_id} />
+          {/* <AllPostsWidget userId={_id} /> */}
         </Box>
-        {isNonResponsive && <Box flexBasis="25%"></Box>}
+        {isNonResponsive && (
+          <Box flexBasis="25%">
+            <AdsWidget />
+            <Box m="2rem 0" />
+            <FriendListWidget userId={_id} />
+          </Box>
+        )}
       </Box>
     </Box>
   );

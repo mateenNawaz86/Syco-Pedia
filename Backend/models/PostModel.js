@@ -15,7 +15,7 @@ const postSchema = new Schema({
   description: String,
   picturePath: String,
   userProfilePath: String,
-  like: {
+  likes: {
     type: Map,
     of: Boolean,
   },
@@ -31,5 +31,5 @@ const postSchema = new Schema({
 });
 
 // Export the Schema
-const Post = mongoose.model("post", postSchema);
+const Post = mongoose.model("Post", postSchema);
 export default Post;

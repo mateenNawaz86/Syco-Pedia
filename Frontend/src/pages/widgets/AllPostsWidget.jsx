@@ -12,7 +12,7 @@ const AllPostsWidget = ({ userId, isProfile = false }) => {
   const getAllPosts = async () => {
     const response = await fetch("http://localhost:5000/posts", {
       method: "GET",
-      headers: { Authorization: `${token}` }, // here we pass token to server
+      headers: { Authorization: token }, // here we pass token to server
     });
     const data = await response.json(); // get data in json format
     dispatch(setPosts({ posts: data })); // set data to posts store variable
@@ -22,7 +22,7 @@ const AllPostsWidget = ({ userId, isProfile = false }) => {
   const getUserPosts = async () => {
     const response = fetch(`http://localhost:5000/posts/${userId}/posts`, {
       method: "GET",
-      headers: { Authorization: `${token}` }, // here we pass token to server
+      headers: { Authorization: token }, // here we pass token to server
     });
     const data = await response.json(); // get data in json format
     dispatch(setPosts({ posts: data })); // set data to posts store variable
