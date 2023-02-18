@@ -117,6 +117,7 @@ const Form = () => {
   // Function working with the help of FORMIK package
   const submitHandler = async (values, onSubmitProps) => {
     if (isLogin) await login(values, onSubmitProps);
+    
     if (isRegister) await register(values, onSubmitProps);
   };
 
@@ -135,7 +136,7 @@ const Form = () => {
           errors,
           touched,
           handleBlur,
-          setFieldValue,
+          setFieldValue, 
           resetForm,
         }) => (
           <form onSubmit={handleSubmit}>

@@ -5,7 +5,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 // 1. controller for Signup --> Login NOT required!
-export const signup = async (req, res, next) => {
+export const signup = async (req, res) => {
   try {
     const {
       name,
